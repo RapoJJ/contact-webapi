@@ -32,7 +32,7 @@ namespace ContactWebApi.Repositories
 
         public Contact Read(long id)
         {
-            return _context.Contact.FirstOrDefault(c => c.Id == id);
+            return _context.Contact.AsNoTracking().FirstOrDefault(c => c.Id == id);
         }
 
         public Contact Update(Contact contact)

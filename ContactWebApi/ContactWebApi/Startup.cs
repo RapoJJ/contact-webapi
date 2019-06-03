@@ -31,10 +31,10 @@ namespace ContactWebApi
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IContactService, ContactService>();
 
-            /*services.AddDbContext<ContactdbContext>(opt =>
+            services.AddDbContext<ContactdbContext>(opt =>
                 {
                     opt.UseSqlServer(Configuration.GetConnectionString("AzurePersonDBContext"));
-                });*/
+                });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

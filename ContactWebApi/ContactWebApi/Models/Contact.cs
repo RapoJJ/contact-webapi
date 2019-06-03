@@ -19,7 +19,7 @@ namespace ContactWebApi.Models
         [StringLength(50)]
         public string City { get; set; }
         [StringLength(50)]
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
         [StringLength(50)]
         public string PhoneNumber { get; set; }
     }
