@@ -39,7 +39,8 @@ namespace ContactWebApi.Services
             if (updatedContact == null)
             {
                 //EI OLLU OLEMASSA
-                throw new Exception($"Contact with {id} not found!");
+                //throw new Exception($"Contact with {id} not found!");
+                return updatedContact;
             }
 
             return _contactRepository.Update(contact);
@@ -50,7 +51,7 @@ namespace ContactWebApi.Services
             var deletedContact = _contactRepository.Read(id);
             if (deletedContact == null)
             {
-                throw new Exception("Contact not found");
+                return new NotFoundResult();
             }
 
             return _contactRepository.Delete(id);
