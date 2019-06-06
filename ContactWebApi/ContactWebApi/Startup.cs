@@ -36,6 +36,10 @@ namespace ContactWebApi
                     opt.UseSqlServer(Configuration.GetConnectionString("AzurePersonDBContext"));
                 });
 
+            // CORS Policy
+            services.AddCors(options => options.AddPolicy("AllowAnyPolicy",
+                builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -46,6 +50,8 @@ namespace ContactWebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowAnyPolicy");
 
             app.UseMvc();
         }
